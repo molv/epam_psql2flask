@@ -1,0 +1,27 @@
+<h1>Flask Output</h1>
+<!--    <div style="width: 30%; margin: auto">-->
+<!--        <h1>Authors block</h1>-->
+<!--        {% for id in auth_id_out %}-->
+<!--        <div style="padding: 10px; background-color: #EEE; margin: 20px">-->
+<!--            <p style="font-size: 18px">{{ id }}</p>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--<div>-->
+<!--    <div style="width: 30%; margin: auto">-->
+<!--        <h1>Authors block 2</h1>-->
+<!--        {% for author in author_name_out %}-->
+<!--        <div style="padding: 10px; background-color: #EEE; margin: 20px">-->
+<!--            <p style="font-size: 18px">{{ id }}</p>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<div>
+ <div style="width: 30%; margin: auto">
+     <h2>Authors data:</h2>
+    {% for i in author_records %}
+    <div style="padding: 10px; background-color: #EEE; margin: 20px">
+            <h3># {{ i[0] }} is {{ i[1] }} </h3>
+    </div>
+    {% endfor %}
+</div>
