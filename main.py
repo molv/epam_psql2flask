@@ -6,7 +6,7 @@ import threading
 import time
 
 '''Grab credentials from .pgpass file, saved in the current user`s directory'''
-with open(expanduser('~/pgpass.txt'), 'r') as f:
+with open(expanduser('~/.pgpass'), 'r') as f:
     host, port, database, user, password = f.read().split(':')
 
 '''Delete spaces at the end'''
