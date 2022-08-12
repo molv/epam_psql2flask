@@ -17,7 +17,7 @@ conn = psycopg2.connect(dbname=(database), user=(user), password=(password), hos
 cursor = conn.cursor()
 
 app = Flask(__name__)
-'''when requesting / page from flask'''
+'''Actions when requesting / page from flask'''
 @app.route("/")
 def start_page():
     '''get data from 'author' table and save to variable 'author_records' '''
@@ -31,22 +31,20 @@ def start_page():
     cursor.close()
     conn.close()
 
+'''Send get request to flask, save response to 'req' variable.
+Then write outuput to the file.
+Repeat in 60 sec'''
 def request_page():
-    req = requests.get('http://127.0.0.1:5000/')
-    # print(req.text)
-    # print(f'get was executed')
-    with open("my_new_file.html", "w") as fh:
-        fh.write(req.text)
+    while(True):
+        # print(f'executing while loop')
+        req = requests.get('http://127.0.0.1:5000/')
+        with open("my_new_file.html", "w") as fh:
+            fh.write(req.text)
+        time.sleep(60)
+
+'''Execute flask code as thread'''
 def run_app():
     app.run(debug=False, threaded=True)
-
-# def while_function():
-    # print(output_from_parsed_template)
-    # i = 0
-    # while i < 20:
-    #     time.sleep(1)
-    #     print(i)
-    #     i += 1
 
 '''run flask code, then request the web page and save it as file'''
 if __name__ == "__main__":
