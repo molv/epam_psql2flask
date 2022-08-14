@@ -32,13 +32,13 @@ def start_page():
     conn.close()
 
 '''Send get request to flask, save response to 'req' variable.
-Then write outuput to the file.
+Then write output to the file.
 Repeat in 60 sec'''
 def request_page():
     while(True):
         # print(f'executing while loop')
         req = requests.get('http://127.0.0.1:5000/')
-        with open("my_new_file.html", "w") as fh:
+        with open("/var/www/html/index.html", "w") as fh:
             fh.write(req.text)
         time.sleep(60)
 
